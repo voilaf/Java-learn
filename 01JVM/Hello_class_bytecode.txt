@@ -1,0 +1,84 @@
+public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=8, args_size=1
+         0: iconst_1					//: 定义常量1，压栈 
+         1: istore_1					//: 出栈，存储到本地变量表slot1
+         2: iconst_2					//: 定义常量2，压栈 
+         3: istore_2					//: 出栈，存储到本地变量表slot2
+         4: iload_1						//: 将本地变量表slot1的变量取出压栈：1
+         5: iload_2						//: 将本地变量表slot2的变量取出压栈：2
+         6: iadd						//: 操作数栈出栈两次，取两个数相加，并将计算结果压栈
+         7: istore_3					//: 出栈，存储到本地变量表slot3：3
+         8: iload_2						//: 将本地变量表slot2的变量取出压栈：2
+         9: iload_1						//: 将本地变量表slot1的变量取出压栈：1
+        10: isub						//: 两数相减，栈底减栈顶
+        11: istore        4				//: 相减结果出栈，存储到本地变量表slot4：1
+        13: iload_1						//: 将本地变量表slot1的变量取出压栈：1
+        14: iload_2						//: 将本地变量表slot2的变量取出压栈：2
+        15: imul						//: 操作数栈出栈两次，取两个数相乘，并将计算结果压栈
+        16: istore        5				//: 出栈，存储到本地变量表slot5：2
+        18: iload_2						//: 将本地变量表slot2的变量取出压栈：2
+        19: iconst_2					//: 定义常量2，压栈 
+        20: idiv						//: 两数相除，栈底除以栈顶
+        21: istore        6				//: 相除结果出栈，存储到本地变量表slot6：1
+        23: iload_3						//: 将本地变量表slot1的变量取出压栈：3
+        24: ifle          38			//: 如果本地变量表slot3小于等于0，执行38行
+										//: 27、30、32：栈顶值大于0，加载字符串常量#3并调用System.out.println输出
+        27: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;	
+        30: ldc           #3                  // String addResult is gt 0
+        32: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        35: goto          46			//: 执行46行
+										// 38、41、43：栈顶值小于等于0，加载字符串常量#5并调用System.out.println输出
+        38: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        41: ldc           #5                  // String addResult is lt 0
+        43: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        46: iconst_0					//: 定义常量0
+        47: istore        7				//: 出栈，存储到本地变量表slot7
+        49: iload         7				//: 将本地变量表slot7的变量取出压栈：依次是0、1、2、3
+        51: iconst_3					//: 定义常量3
+        52: if_icmpge     69			//: 如果本地变量表内slot7大于等于3，执行69行
+										//: 栈底值小于栈顶值，输出本地变量表slot4的值：1
+        55: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        58: iload         4
+        60: invokevirtual #6                  // Method java/io/PrintStream.println:(I)V
+        63: iinc          7, 1			//: 本地变量表slot7的int类型变量值+1,
+        66: goto          49			//: 执行49行，循环
+        69: return
+      LineNumberTable:
+        line 6: 0
+        line 7: 2
+        line 8: 4
+        line 9: 8
+        line 10: 13
+        line 11: 18
+        line 13: 23
+        line 14: 27
+        line 16: 38
+        line 19: 46
+        line 20: 55
+        line 19: 63
+        line 22: 69
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           49      20     7     i   I
+            0      70     0  args   [Ljava/lang/String;
+            2      68     1     a   I
+            4      66     2     b   I
+            8      62     3 addResult   I
+           13      57     4 subResult   I
+           18      52     5 mulResult   I
+           23      47     6 divReslt   I
+      StackMapTable: number_of_entries = 4
+        frame_type = 255 /* full_frame */
+          offset_delta = 38
+          locals = [ class "[Ljava/lang/String;", int, int, int, int, int, int ]
+          stack = []
+        frame_type = 7 /* same */
+        frame_type = 252 /* append */
+          offset_delta = 2
+          locals = [ int ]
+        frame_type = 250 /* chop */
+          offset_delta = 19
+}
