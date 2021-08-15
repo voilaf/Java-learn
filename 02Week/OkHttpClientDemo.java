@@ -23,6 +23,10 @@ public class OkHttpClientDemo {
                 System.out.println(response.body().string());
             } catch (IOException e) {
                 e.printStackTrace();
+            } finally {
+                if (response != null) {
+                    response.close();
+                }
             }
         }
     }
