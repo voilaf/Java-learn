@@ -24,9 +24,7 @@ public class OkHttpClientDemo {
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
-                if (response != null) {
-                    response.close();
-                }
+                response.close();
             }
         }
     }
