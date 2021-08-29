@@ -12,3 +12,5 @@
 12. 主线程通过BlockQueue堵塞，等待子线程生产数据
 13. 管道通信，主线程read时堵塞，等待子线程write
 14. 主线程循环判断静态变量是否为null，子线程写入静态变量
+15. Wrapper对象持有变量存储结果值，线程间传递对象引用，设置Semaphore初始为0，主线程调用acquire后会堵塞，子线程完成任务release，permits+1，主线程恢复执行
+16. CompletableFuture计算后获取结果
